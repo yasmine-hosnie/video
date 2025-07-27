@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Player</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="d-flex justify-content-center align-items-center min-vh-100"
+    style="background: linear-gradient(135deg, #1c1c3c, #2a79d2);">
+
+    <div class="container">
+        <div class="card shadow-lg p-4 mx-auto" style="max-width: 600px;">
+
+            <div class="mb-3">
+                <input type="range" class="form-range" id="bar" min="0" max="24" value="0" oninput="syncTime()">
+                <small class="text-info" id="timeLabel">0:00 / 4:00</small>
+            </div>
+
+            <div class="mb-3 d-flex gap-2 flex-wrap">
+                <button class="btn btn-outline-light btn-sm" onclick="start()">Start</button>
+                <button class="btn btn-outline-light btn-sm" onclick="pause()">Pause</button>
+                <button class="btn btn-outline-light btn-sm" onclick="back10()">&#xab;</button>
+                <button class="btn btn-outline-light btn-sm" onclick="back5()">&#x2039;</button>
+                <button class="btn btn-outline-light btn-sm" onclick="skip5()">&#x203a;</button>
+                <button class="btn btn-outline-light btn-sm" onclick="skip10()">&#xbb;</button>
+                <button class="btn btn-outline-light btn-sm" id="muteToggle" onclick="muteUnmute()">Mute</button>
+            </div>
+
+            <div class="mb-3 d-flex align-items-center gap-2">
+                <label class="form-label m-0">Volume:</label>
+                <input type="range" class="form-range" id="vol" min="0" max="100" value="100" oninput="setVolume()"
+                    style="width: 100px;">
+                <span id="volDisplay">100</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-2">
+                <label class="form-label m-0">Speed:</label>
+                <input type="range" class="form-range" id="spd" min="0" max="3" value="2" oninput="adjustSpeed()"
+                    style="width: 100px;">
+                <span id="spdLabel">1x</span>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html
